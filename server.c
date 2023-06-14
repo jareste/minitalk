@@ -6,7 +6,7 @@
 /*   By: jareste- <jareste-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 21:18:30 by jareste-          #+#    #+#             */
-/*   Updated: 2023/06/14 14:20:35 by jareste-         ###   ########.fr       */
+/*   Updated: 2023/06/14 16:24:30 by jareste-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,5 @@ int	main(void)
 		signal(SIGUSR2, ft_handler);
 		sleep (1);
 	}
-//		sleep(1);
-	return(0);
+	return (0);
 }
