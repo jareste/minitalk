@@ -1,17 +1,19 @@
-#******************************************************************************#
+# **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gemartin <gemartin@student.42barc...>      +#+  +:+       +#+         #
+#    By: jareste- <jareste-@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/01/15 18:21:24 by gemartin          #+#    #+#              #
-#    Updated: 2023/06/14 02:53:25 by jareste-         ###   ########.fr        #
+#    Created: 2023/06/17 04:01:10 by jareste-          #+#    #+#              #
+#    Updated: 2023/06/17 04:35:34 by jareste-         ###   ########.fr        #
 #                                                                              #
-#******************************************************************************#
+# **************************************************************************** #
 
 NAME_SERVER = server
 NAME_CLIENT = client
+NAME_SERVER_BONUS = server_bonus
+NAME_CLIENT_BONUS = client_bonus
 
 SRCS_CLIENT = client.c
 SRCS_SERVER = server.c
@@ -23,15 +25,15 @@ OBJS_CLIENTBONUS = ${SRCS_CLIENTBONUS:.c=.o}
 OBJS_SERVERBONUS = ${SRCS_SERVERBONUS:.c=.o}
 CC = gcc
 RM = rm -f
-CFLAGS = -Wall -Wextra -Werror -MMD
+CFLAGS = -Wall -Wextra -Werror
 
 all:	${OBJS_SERVER} ${OBJS_CLIENT}
 		${CC} ${CFLAGS} ${SRCS_SERVER} -o ${NAME_SERVER}
 		${CC} ${CFLAGS} ${SRCS_CLIENT} -o ${NAME_CLIENT}
 
 bonus:	${OBJS_SERVERBONUS} ${OBJS_CLIENTBONUS}
-		${CC} ${CFLAGS} ${SRCS_SERVERBONUS} -o ${NAME_SERVER}
-		${CC} ${CFLAGS} ${SRCS_CLIENTBONUS} -o ${NAME_CLIENT}
+		${CC} ${CFLAGS} ${SRCS_SERVERBONUS} -o ${NAME_SERVER_BONUS}
+		${CC} ${CFLAGS} ${SRCS_CLIENTBONUS} -o ${NAME_CLIENT_BONUS}
 
 client: ${OBJS_CLIENT}
 		${CC} ${CFLAGS} ${SRCS_CLIENT} -o ${NAME_CLIENT}
@@ -43,7 +45,7 @@ clean:
 			${RM} ${OBJS_CLIENT} ${OBJS_SERVER} ${OBJS_CLIENTBONUS} ${OBJS_SERVERBONUS}
 
 fclean: clean
-			${RM} ${NAME_CLIENT} ${NAME_SERVER}
+			${RM} ${NAME_CLIENT} ${NAME_SERVER} ${NAME_CLIENT_BONUS} ${NAME_SERVER_BONUS}
 
 re: fclean all
 
